@@ -1,0 +1,72 @@
+2159:2'breakfast mako'
+ in dir /home/loki/buildbot/slave/runtests/build (timeout 1200 secs)
+ watching logfiles {}
+ argv: ['breakfast mako']
+ environment:
+  ANDROID_BUILD_TOP=/home/loki/buildbot/slave/runtests/build
+  DERBY_HOME=/opt/java6/db
+  HOME=/home/loki
+  J2SDKDIR=/opt/java6
+  JAVA_HOME=/opt/java6
+  LANG=en_US.UTF-8
+  LOGNAME=loki
+  MAIL=/var/spool/mail/loki
+  OLDPWD=/home/loki/buildbot/slave
+  PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/home/loki/cm/bin:/opt/java6/bin:/opt/java6/db/bin:/opt/java6/jre/bin:/usr/bin/core_perl
+  PWD=/home/loki/buildbot/slave/runtests/build
+  SHELL=/bin/bash
+  SHLVL=1
+  SSH_CLIENT=192.168.1.157 51802 22
+  SSH_CONNECTION=192.168.1.157 51802 192.168.1.188 22
+  SSH_TTY=/dev/pts/0
+  TERM=xterm-256color
+  USER=loki
+  XDG_RUNTIME_DIR=/run/user/1000
+  XDG_SESSION_ID=3
+  _=/usr/bin/buildslave
+  aospremote=() {  git remote rm aosp 2> /dev/null;
+ if [ ! -d .git ]; then
+ echo .git directory not found. Please run this from the root directory of the Android repository you wish to set up.;
+ fi;
+ PROJECT=`pwd | sed s#$ANDROID_BUILD_TOP/##g`;
+ if ( echo $PROJECT | grep -qv "^device" ); then
+ PFX="platform/";
+ fi;
+ git remote add aosp https://android.googlesource.com/$PFX$PROJECT;
+ echo "Remote 'aosp' created"
+}
+  cmremote=() {  git remote rm cmremote 2> /dev/null;
+ if [ ! -d .git ]; then
+ echo .git directory not found. Please run this from the root directory of the Android repository you wish to set up.;
+ fi;
+ GERRIT_REMOTE=$(cat .git/config  | grep git://github.com | awk '{ print $NF }' | sed s#git://github.com/##g);
+ if [ -z "$GERRIT_REMOTE" ]; then
+ GERRIT_REMOTE=$(cat .git/config  | grep http://github.com | awk '{ print $NF }' | sed s#http://github.com/##g);
+ if [ -z "$GERRIT_REMOTE" ]; then
+ echo Unable to set up the git remote, are you in the root of the repo?;
+ return 0;
+ fi;
+ fi;
+ CMUSER=`git config --get review.review.cyanogenmod.org.username`;
+ if [ -z "$CMUSER" ]; then
+ git remote add cmremote ssh://review.cyanogenmod.org:29418/$GERRIT_REMOTE;
+ else
+ git remote add cmremote ssh://$CMUSER@review.cyanogenmod.org:29418/$GERRIT_REMOTE;
+ fi;
+ echo You can now push to "cmremote".
+}
+ using PTY: False
+,594:1Upon execvpe breakfast mako ['breakfast mako'] in environment id 21618656
+:Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/twisted/internet/process.py", line 420, in _fork
+    executable, args, environment)
+  File "/usr/lib/python2.7/site-packages/twisted/internet/process.py", line 466, in _execChild
+    os.execvpe(executable, args, environment)
+  File "/usr/lib/python2.7/os.py", line 353, in execvpe
+    _execvpe(file, args, env)
+  File "/usr/lib/python2.7/os.py", line 380, in _execvpe
+    func(fullname, *argrest)
+OSError: [Errno 2] No such file or directory
+,56:2program finished with exit code 1
+elapsedTime=0.004050
+,

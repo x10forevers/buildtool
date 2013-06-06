@@ -1,0 +1,37 @@
+849:2/bin/sh -c 'cd vendor/cm/ && ./get-prebuilts'
+ in dir /home/loki/buildbot/slave/cm-10_1-mako/build (timeout 1200 secs)
+ watching logfiles {}
+ argv: ['/bin/sh', '-c', 'cd vendor/cm/ && ./get-prebuilts']
+ environment:
+  DERBY_HOME=/opt/java6/db
+  HOME=/home/loki
+  J2SDKDIR=/opt/java6
+  JAVA_HOME=/opt/java6
+  LANG=en_US.UTF-8
+  LOGNAME=loki
+  MAIL=/var/spool/mail/loki
+  OLDPWD=/home/loki/buildbot/slave
+  PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/home/loki/cm/bin:/opt/java6/bin:/opt/java6/db/bin:/opt/java6/jre/bin:/usr/bin/core_perl
+  PWD=/home/loki/buildbot/slave/cm-10_1-mako/build
+  SHELL=/bin/bash
+  SHLVL=1
+  SSH_CLIENT=192.168.1.250 43050 22
+  SSH_CONNECTION=192.168.1.250 43050 192.168.1.188 22
+  SSH_TTY=/dev/pts/2
+  TERM=xterm
+  USER=loki
+  XDG_RUNTIME_DIR=/run/user/1000
+  XDG_SESSION_ID=8
+  _=/usr/bin/buildslave
+ using PTY: False
+,477:1  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   178  100   178    0     0    390      0 --:--:-- --:--:-- --:--:--   403
+ 11  412k   11 50226    0     0  69235      0  0:00:06 --:--:--  0:00:06 69235100  412k  100  412k    0     0   461k      0 --:--:-- --:--:-- --:--:-- 2152k
+,231:0Archive:  ./proprietary/Term.apk
+  inflating: ./proprietary/lib/armeabi/libjackpal-androidterm4.so  
+  inflating: ./proprietary/lib/mips/libjackpal-androidterm4.so  
+  inflating: ./proprietary/lib/x86/libjackpal-androidterm4.so  
+,56:2program finished with exit code 0
+elapsedTime=1.468796
+,

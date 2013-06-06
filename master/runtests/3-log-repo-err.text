@@ -1,0 +1,18 @@
+1116:0Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/twisted/internet/defer.py", line 1213, in unwindGenerator
+    return _inlineCallbacks(None, gen, Deferred())
+  File "/usr/lib/python2.7/site-packages/twisted/internet/defer.py", line 1070, in _inlineCallbacks
+    result = g.send(result)
+  File "/usr/lib/python2.7/site-packages/buildbot/steps/source/repo.py", line 239, in doStartVC
+    d = self.doRepoSync()
+  File "/usr/lib/python2.7/site-packages/twisted/internet/defer.py", line 1213, in unwindGenerator
+    return _inlineCallbacks(None, gen, Deferred())
+--- <exception caught here> ---
+  File "/usr/lib/python2.7/site-packages/twisted/internet/defer.py", line 1070, in _inlineCallbacks
+    result = g.send(result)
+  File "/usr/lib/python2.7/site-packages/buildbot/steps/source/repo.py", line 265, in doRepoSync
+    updatable = yield self.sourcedirIsUpdateable()
+  File "/usr/lib/python2.7/site-packages/buildbot/steps/source/repo.py", line 211, in sourcedirIsUpdateable
+    return self.pathExists(self.repoDir())
+exceptions.AttributeError: 'Repo' object has no attribute 'pathExists'
+,
