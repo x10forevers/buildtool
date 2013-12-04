@@ -1,10 +1,9 @@
-
 import os
 
 from twisted.application import service
 from buildslave.bot import BuildSlave
 
-basedir = r'/home/loki/buildbot/slave'
+basedir = r'/home/raj/buildbot/slave'
 rotateLength = 10000000
 maxRotatedFiles = 10
 
