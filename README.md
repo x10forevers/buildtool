@@ -1,6 +1,6 @@
-droidbuilder
+Buildtool
 ============
 
-Buildbot configured for Android building
+Man at work....
 
-Currently configured to build CyanogenMOD for the Mako and Manta ever 24 hours. 
+.;..;.m[pl[;.''.mkvs';\';'
